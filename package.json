@@ -1,0 +1,31 @@
+{
+	"name": "bare-cms",
+	"version": "0.0.1",
+	"description": "Bare CMS",
+	"main": "index.js",
+	"scripts": {
+		"test": "test",
+		"start": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/silvandiepen/bare-cms.git"
+	},
+	"keywords": [
+		"Bare",
+		"CMS"
+	],
+	"author": "Sil van Diepen",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/silvandiepen/bare-cms/issues"
+	},
+	"homepage": "https://github.com/silvandiepen/bare-cms#readme",
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"mongoose": "^5.8.7"
+	}
+}
