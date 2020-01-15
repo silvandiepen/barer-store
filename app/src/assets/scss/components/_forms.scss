@@ -1,0 +1,40 @@
+%input {
+	border-radius: 0.5em;
+	font-size: inherit;
+	line-height: 1em;
+	padding: 1em;
+	border: none;
+	width: 100%;
+	box-shadow: 0 0 0 1px color(_IceDark, 0.5) inset;
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px color(_Blue) inset;
+	}
+}
+.input-field {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-start;
+	justify-content: flex-start;
+	font-size: 1rem;
+	// padding: 1em;
+	label {
+		width: 120px;
+		padding: 1em;
+	}
+	input[type="text"] {
+		@extend %input;
+	}
+	& + .button,
+	& + .input-field {
+		margin-top: 1em;
+		.inline-form & {
+			margin-top: 0;
+			margin-left: 1em;
+		}
+	}
+}
+
+.inline-form {
+	display: flex;
+}

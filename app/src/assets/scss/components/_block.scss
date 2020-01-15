@@ -1,0 +1,32 @@
+.block {
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.125),
+		0 -0.25rem 0 color(IceLight) inset;
+	padding: grid(1);
+	& + .block {
+		margin-top: grid(1);
+	}
+}
+
+.block-list {
+	display: flex;
+	flex-direction: column;
+	&__item {
+		display: block;
+	}
+}
+
+.block-table {
+	width: 100%;
+	border-collapse: collapse;
+	th {
+		padding: 0.75em;
+		text-align: left;
+	}
+	tr {
+		td {
+			border-top: 1px solid color(Ice, 0.5);
+			padding: 0.75em;
+		}
+	}
+}

@@ -5,7 +5,12 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "test",
-		"start": "nodemon server.js"
+		"start": "concurrently \"npm run start:api\" \"npm run start:app\"",
+		"start:api": "nodemon server.js --prefix api",
+		"start:app": "npm run serve --prefix app",
+		"init": "concurrently \"npm run init:api\" \"npm run init:app\"",
+		"init:app": "npm install --prefix app",
+		"init:api": "npm install"
 	},
 	"repository": {
 		"type": "git",
@@ -22,9 +27,13 @@
 	},
 	"homepage": "https://github.com/silvandiepen/bare-cms#readme",
 	"devDependencies": {
+		"@henris/custom": "0.0.2",
+		"guyn": "0.0.13",
+		"henris": "^1.2.18",
 		"nodemon": "^2.0.2"
 	},
 	"dependencies": {
+		"concurrently": "^5.0.2",
 		"express": "^4.17.1",
 		"mongoose": "^5.8.7"
 	}

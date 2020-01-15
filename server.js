@@ -3,9 +3,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const Task = require("./api/models/todoListModel"); //created model loading here
+const Words = require("./api/models/wordModel"); //created model loading here
 const bodyParser = require("body-parser");
 
-// mongoose instance connection url connection
+// DB Connections
 mongoose.set("useNewUrlParser", true);
 mongoose.Promise = global.Promise;
 
@@ -19,14 +20,24 @@ mongoose
 		console.log(`DB Connection Error: ${err.message}`);
 	});
 
+// Express Server Config
+const allowCrossDomain = (request, result, next) => {
+	result.header("Access-Control-Allow-Origin", "*");
+	result.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+	result.header("Access-Control-Allow-Headers", "Content-Type");
+	next();
+};
+
+app.use(allowCrossDomain);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(function(request, result) {
-	result.status(404).send({ url: request.originalUrl + " not found" });
-});
+// In some way always gives a 404
+// app.use((request, result) => {
+// 	result.status(404).send({ url: request.originalUrl + " not found" });
+// });
 
-const routes = require("./api/routes/todoListRoutes"); //importing route
+const routes = require("./api/routes/wordRoutes"); //importing route
 routes(app); //register the route
 
 app.listen(port);
