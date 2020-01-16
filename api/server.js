@@ -2,19 +2,28 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
-const Task = require("./api/models/todoListModel"); //created model loading here
-const Words = require("./api/models/wordModel"); //created model loading here
+const dotenv = require("dotenv").config();
+// const Task = require("./api/models/todoListModel"); //created model loading here
+const Words = require("./models/wordModel"); //created model loading here
 const bodyParser = require("body-parser");
 
 // DB Connections
-mongoose.set("useNewUrlParser", true);
+
+const db = {
+	url: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true`,
+	options: {
+		useNewUrlParser: true,
+		useFindAndModify: false,
+		useUnifiedTopology: true
+	}
+};
+// mongoose.set("useNewUrlParser", true);
 mongoose.Promise = global.Promise;
 
+//mongodb+srv://barecms:<password>@cluster0-zmspb.azure.mongodb.net/test?retryWrites=true&w=majority
+
 mongoose
-	.connect("mongodb://localhost/Tododb", {
-		useUnifiedTopology: true,
-		useNewUrlParser: true
-	})
+	.connect(db.url, db.options)
 	.then(() => console.log("DB Connected!"))
 	.catch((err) => {
 		console.log(`DB Connection Error: ${err.message}`);
@@ -37,7 +46,7 @@ app.use(bodyParser.json());
 // 	result.status(404).send({ url: request.originalUrl + " not found" });
 // });
 
-const routes = require("./api/routes/wordRoutes"); //importing route
+const routes = require("./routes/wordRoutes"); //importing route
 routes(app); //register the route
 
 app.listen(port);

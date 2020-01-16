@@ -8,9 +8,12 @@
 		"start": "concurrently \"npm run start:api\" \"npm run start:app\"",
 		"start:api": "nodemon server.js --prefix api",
 		"start:app": "npm run serve --prefix app",
+		"start:lambda": "netlify-lambda serve src/lambda",
 		"init": "concurrently \"npm run init:api\" \"npm run init:app\"",
 		"init:app": "npm install --prefix app",
-		"init:api": "npm install"
+		"init:api": "npm install",
+		"build": "concurrently \"npm run build:lambda\"",
+		"build:lambda": "netlify-lambda build api"
 	},
 	"repository": {
 		"type": "git",
@@ -34,7 +37,11 @@
 	},
 	"dependencies": {
 		"concurrently": "^5.0.2",
+		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"mongoose": "^5.8.7"
+		"http-proxy-middleware": "^0.20.0",
+		"mongodb-client-encryption": "^1.0.1",
+		"mongoose": "^5.8.7",
+		"netlify-lambda": "^1.6.3"
 	}
 }

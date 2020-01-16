@@ -5,11 +5,16 @@ const Schema = mongoose.Schema;
 const WordSchema = new Schema({
 	key: {
 		type: String,
-		required: "Give Key"
+		required: "Give Key",
+		required: [true, "Key is required"]
 	},
 	value: {
 		type: String,
-		required: "Give Value"
+		required: [false, "Give a value"]
+	},
+	language: {
+		type: String,
+		required: [true, "Give Language"]
 	},
 	created: {
 		type: Date,
