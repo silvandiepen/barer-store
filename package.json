@@ -9,11 +9,12 @@
 		"start:api": "nodemon server.js --prefix api",
 		"start:app": "npm run serve --prefix app",
 		"start:lambda": "netlify-lambda serve src/lambda",
-		"init": "concurrently \"npm run init:api\" \"npm run init:app\"",
+		"init": "npm run init:api && npm run init:app",
 		"init:app": "npm install --prefix app",
 		"init:api": "npm install",
-		"build": "concurrently \"npm run build:lambda\"",
-		"build:lambda": "netlify-lambda build api"
+		"build": "npm run build:lambda && npm run build:app",
+		"build:lambda": "netlify-lambda build api",
+		"build:app": "netlify-lambda build api"
 	},
 	"repository": {
 		"type": "git",
