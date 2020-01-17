@@ -1,4 +1,9 @@
 [build]
-  Command = "npm run build"
+  Command = "npm run build:api"
   Functions = "lambda"
   Publish = "build"
+
+[build]
+  # Directory to change to before starting a build.
+  # This is where we will look for package.json/.nvmrc/etc.
+  base = "app/"
