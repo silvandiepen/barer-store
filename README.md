@@ -1,6 +1,10 @@
-# Bare
+# Barer Store
 
-A Bare CMS. What more do you need than a "key=>value" store and an asset manager?
+A bare store. What more do you need than a "key=>value" store and an asset manager?
+
+### Meaning
+
+Barer, means word in Armenian. It also looks like the word "bare", which means naked and without extra things. And Store, well we all know.
 
 ### Install & Run
 
