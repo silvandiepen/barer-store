@@ -100,12 +100,11 @@ export default {
 					.delete("http://localhost:3000/word/" + value._id, {
 						wordId: value._id
 					})
-					.then((response) => {
+					.then(() => {
 						this.getStrings();
-						console.log(response);
 					})
 					.catch((error) => {
-						console.log(error);
+						// 						console.log(error);
 					});
 		},
 		postString() {
@@ -116,17 +115,16 @@ export default {
 						value: this.newValue
 					})
 					.then((response) => {
-						console.log(response.data);
 						this.newKey = null;
 						this.newValue = null;
 						this.getStrings();
 					})
 					.catch((error) => {
 						this.error = error;
-						console.log(error);
+						// console.log(error);
 					});
 			} else {
-				console.log("woops, nope!");
+				// console.log("woops, nope!");
 			}
 		}
 	}

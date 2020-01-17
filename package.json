@@ -14,7 +14,7 @@
 		"init:api": "npm install",
 		"build": "npm run build:lambda && npm run build:app",
 		"build:lambda": "netlify-lambda build api",
-		"build:app": "netlify-lambda build api"
+		"build:app": "npm run build --prefix app"
 	},
 	"repository": {
 		"type": "git",
