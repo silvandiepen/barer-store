@@ -104,7 +104,7 @@ export default {
 						this.getStrings();
 					})
 					.catch((error) => {
-						// 						console.log(error);
+						this.error = error;
 					});
 		},
 		postString() {
@@ -114,17 +114,14 @@ export default {
 						key: toStringCase(this.newKey),
 						value: this.newValue
 					})
-					.then((response) => {
+					.then(() => {
 						this.newKey = null;
 						this.newValue = null;
 						this.getStrings();
 					})
 					.catch((error) => {
 						this.error = error;
-						// console.log(error);
 					});
-			} else {
-				// console.log("woops, nope!");
 			}
 		}
 	}

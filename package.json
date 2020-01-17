@@ -1,7 +1,7 @@
 {
-	"name": "bare-cms",
+	"name": "barer",
 	"version": "0.0.1",
-	"description": "Bare CMS",
+	"description": "Barer Store",
 	"main": "index.js",
 	"scripts": {
 		"test": "test",
@@ -18,7 +18,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/silvandiepen/bare-cms.git"
+		"url": "git+https://github.com/silvandiepen/barer-store.git"
 	},
 	"keywords": [
 		"Bare",
@@ -27,9 +27,9 @@
 	"author": "Sil van Diepen",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/silvandiepen/bare-cms/issues"
+		"url": "https://github.com/silvandiepen/barer-store/issues"
 	},
-	"homepage": "https://github.com/silvandiepen/bare-cms#readme",
+	"homepage": "https://github.com/silvandiepen/barer-store#readme",
 	"devDependencies": {
 		"@henris/custom": "0.0.2",
 		"guyn": "0.0.13",
